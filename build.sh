@@ -11,6 +11,10 @@ fi
 
 if [ ! -f paket.lock ]; then
 	mono .paket/paket.exe install
+else
+    mono .paket/paket.exe restore
 fi
+
+
 
 mono packages/build/FAKE/tools/FAKE.exe "build.fsx" Dummy --fsiargs build.fsx $@
